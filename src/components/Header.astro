@@ -1,0 +1,58 @@
+---
+import {Image} from "astro:assets";
+import SocialIcons from "@/components/SocialIcons.astro";
+import AvtarImg from "../assets/kick.png";
+import DefaultCover from "../assets/banner4.jpg";
+import type { CollectionEntry } from 'astro:content';
+// types
+interface LooseData {
+  title: string;
+  desc:  string;
+}
+interface Props {
+  isHome?: boolean,
+  post?: CollectionEntry<"blogs">,
+  data?: LooseData
+}
+// Vars & Props
+const {post, isHome = false, data} = Astro.props;
+const cover: ImageMetadata = post?.data.cover ?? DefaultCover;
+const title= data?.title ?? (isHome ? '@dullx' : post?.data.title);
+const  desc = data?.desc  ?? (isHome
+  ? 'مُبرمج ويب مهتم بتخصيص الأنظمة؛ أشارك عبر مدونتي أدوات ونصائح تُعزّز كفاءة المطوّرين'
+  : post?.data.desc);
+const defaultLinks = {
+  Twitter: 'https://twitter.com/x0d7x',
+  Github:  'https://github.com/x0d7x',
+  Youtube: 'https://www.youtube.com/@x0d7x',
+  Tiktok:  'https://www.tiktok.com/@x0d7x',
+};
+const social = isHome
+  ? defaultLinks
+  : post?.data.social ?? {};
+
+---
+<div class="relative w-full mb-4">
+      <Image
+        src={cover}
+        alt="HeaderImg"
+        width={cover.width}
+        height={cover.height}
+        class="w-full h-36 md:h-[220px] sm:h-[200px] object-cover rounded-md"
+      />
+      <div class="flex space-x-2 -mt-6">
+        <Image
+          src={AvtarImg}
+          alt="AvatarPic"
+          width={96}
+          height={96}
+      class="rounded-full shadow-lg size-20 md:size-24 self-start shadow-zinc-200/50"
+      quality="high"
+        />
+        <div class="flex flex-col mt-6">
+          <h1 class="text-xl font-bold text-fg">{title}</h1>
+          <p class="text-sm text-zinc-400 md:text-base font-semibold">{desc}</p>
+        </div>
+      </div>
+  <SocialIcons links={social} class="md:my-2 my-[2px]"/>
+    </div>

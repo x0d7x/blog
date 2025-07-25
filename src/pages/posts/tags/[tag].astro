@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import Card from "@/components/Card.astro"
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
+import Header from "@/components/Header.astro"
+const Allposts:CollectionEntry<"blogs">[] = ( await getCollection("blogs") ).sort((a:CollectionEntry<"blogs">, b:CollectionEntry<"blogs">)=>{
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+})
+const { tag } = Astro.params;
+if (tag === undefined || tag.length === 0) throw new Error("tag is undefined");
+const tagPosts = Allposts.filter((post:CollectionEntry<"blogs">) => post.data.tags.includes(tag));
+if (tagPosts.length === 0) return Astro.redirect("/posts");
+---
+<Layout title={tag + " Posts"}>
+  <div class="container mx-auto flex flex-col m-2 md:max-w-3xl">
+    <Header  data={{ 
+      title: "#" + tag + " Posts",
+      desc: "كل  المقالات #" + tag,
+    }} />
+{tagPosts.map((post:CollectionEntry<"blogs">) => (
+    <Card post={post} class="m-2 md:w-full" />
+    ))}
+</div> 
+</Layout>

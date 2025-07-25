@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import {formatDate} from "@/utils.ts"
+import Tags from "@/components/Tags.astro"
+import { Image } from "astro:assets";
+interface Props {
+    class?: string,
+    post : CollectionEntry<"blogs">
+    isRecent?: boolean
+}
+const { class: className, post, isRecent = false, ...props} = Astro.props;
+const { cover, title, desc, pubDate, tags } = post.data;
+---
+<div class:list={["overflow-hidden rounded-xl shadow-md hover:shadow-zinc-600  hover:opacity-60 hover:shadow-lg pb-20",className]} {...props}>
+  <div class="md:flex flex-col">
+  <a href={'/posts/' + post.id}>
+    <div class="relative">
+ {isRecent && (
+ <span class="absolute top-2 right-1 bg-zinc-500/80 text-zinc-100 text-xs font-bold px-2 py-1 rounded-full z-10 shadow-md animate-bounce">
+            Recent
+          </span>
+        )}
+      <Image
+          width={cover.width}
+          height={cover.height}
+          class=" w-full h-full object-cover rounded-lg "
+          src={cover}
+          alt={title + " cover"}
+          quality="mid"
+      />
+    </div>
+    <div class="p-2.5 border-r-scendry border-2 text-center rounded-lg">
+      <div class="text-md font-bold tracking-wide text-fg uppercase">{title}</div>
+      <p class="md:text-md sm:text-sm font-semibold text-zinc-400">{desc}</p>
+      <p class="md:text-md sm:text-sm text-box">{formatDate(pubDate)}</p>
+      <Tags tags={tags} />
+    <slot/>
+    </div>
+      </a>
+  </div>
+</div>

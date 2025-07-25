@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap");
+@plugin '@tailwindcss/typography';
+/* @plugin "tailwindcss-motion"; */
+@import "tailwindcss";
+@theme {
+  --color-primary: #fe8019;
+  --color-bg: #0f1214;
+  --color-fg: #ebdbb2;
+  --color-p: #b8bb26;
+  --color-box: #8ec07c;
+  --color-scendry: #d79921;
+  --font-sans: "Baloo Bhaijaan 2", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}

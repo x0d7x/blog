@@ -1,0 +1,32 @@
+---
+const currentLocale = Astro.currentLocale;
+const englishUrl = `/en${Astro.url.pathname.replace(/^\/(en|ar)/, "")}`;
+const arabicUrl = `/ar${Astro.url.pathname.replace(/^\/(en|ar)/, "")}`;
+---
+
+<div class="flex justify-center items-center p-2 space-x-2">
+  <a
+    href={englishUrl}
+    class:list={[
+      "px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200",
+      currentLocale === "en"
+        ? "bg-primary text-white shadow-md"
+        : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white",
+    ]}
+    aria-current={currentLocale === "en" ? "page" : false}
+  >
+    English
+  </a>
+  <a
+    href={arabicUrl}
+    class:list={[
+      "px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200",
+      currentLocale === "ar"
+        ? "bg-primary text-white shadow-md"
+        : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white",
+    ]}
+    aria-current={currentLocale === "ar" ? "page" : false}
+  >
+    العربية
+  </a>
+</div>

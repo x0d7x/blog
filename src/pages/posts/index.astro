@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import Card from "@/components/Card.astro"
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
+import Header from "@/components/Header.astro"
+const Allposts:CollectionEntry<"blogs">[] = ( await getCollection("blogs") ).sort((a:CollectionEntry<"blogs">, b:CollectionEntry<"blogs">)=>{
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+})
+---
+<Layout title="All Posts 📖">
+  <div class="container mx-auto mt-2 md:max-w-3xl">
+    <Header isHome={true} />
+ {Allposts[0] && (
+
+      <Card post={Allposts[0]} class="md:w-full mb-2" isRecent={true} />
+    )}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {Allposts.slice(1).map((post) => (
+        <Card post={post} class="  md:w-full" />
+      ))}
+    </div>
+  </div>
+</Layout>

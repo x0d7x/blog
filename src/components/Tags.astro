@@ -1,0 +1,16 @@
+---
+import {Capitalize} from "@/utils.ts";
+interface Props {
+tags : string[]
+class?: string,
+isCard?: boolean
+}
+const {tags, class: className, isCard = false} = Astro.props;
+---
+<div class:list={["flex flex-wrap justify-center", className]}>
+{isCard && (
+  <p class="text-p font-semibold text-sm text-st">#:</p>
+)}
+      {tags.map((tag:string, index:number)=> ( 
+    <span class={index % 2 === 0 ? "mx-1 font-semibold text-sm rounded-full text-box" : "mx-1 font-semibold text-fg rounded-full text-sm"}><a href={'/posts/tags/' + tag}>{"#" + Capitalize(tag)}</a></span>))}
+  </div>

@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+const {class: className, links = {}} = Astro.props;
+interface Props {
+  class?: string,
+  links?: Record<string, string>;  // { twitter: "...", github: "...", ... }
+}
+const S_icons = {
+  Twitter: 'mdi:twitter',     
+  Github:  'mdi:github',      
+  Youtube: 'mdi:youtube',
+  // Tiktok:  'simple-icons:tiktok',
+} as const;
+type IconName = keyof typeof S_icons;
+const getIconSlug = (name: IconName)=> S_icons[name];
+---
+{ Object.entries(links).length > 0 && (
+<div class:list={["flex gap-3", className]}>
+    {Object.entries(links).map(([name, url]) => {
+  const slug = getIconSlug(name as IconName);
+  if (!slug){ 
+    console.warn(`❗️ Icon "${name}" not found, skipping.`);
+    return null;
+    }
+  return (
+    <a href={url} target="_blank" aria-label={name}>
+      <Icon name={slug} width="24" class="hover:text-primary text-p size-6" />
+    </a>
+  );
+})}
+  </div>
+)}

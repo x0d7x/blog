@@ -1,0 +1,20 @@
+---
+import { getLangFromUrl, useTranslations } from '@/utils.ts';
+import { Icon } from 'astro-icon/components';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="bottom-0 right-0 left-0 z-50  rounded-2xl fixed border border-fg/40 bg-black/60 m-4 md:max-w-xl w-2xs md:w-md mx-auto shadow-inner shadow-white/50">
+<div class="flex justify-around items-center py-2">
+    <a href="/" class="flex flex-col items-center text-sm text-fg  hover:text-scendry te">
+      <Icon name="mdi:shield-home" width="24" class="text-white/70 size-6" />
+      <span>Home</span>
+    </a>
+    
+    <a href="/posts" class="flex flex-col items-center text-sm text-fg  hover:text-scendry te">
+      <Icon name="mdi:book" width="24" class="text-white/70 size-6 " />
+      <span>Posts</span>
+    </a>
+  </div>
+  </div>

@@ -1,48 +1,74 @@
-# Astro Starter Kit: Basics
+# My Personal Blog
 
-```sh
-npm create astro@latest -- --template basics
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+This is a personal blog built with [Astro](https://astro.build/), a modern web framework for building fast, content-focused websites. The UI components are built with [React](https://react.dev/) and styled with [Tailwind CSS](https://tailwindcss.com/). The entire project is written in [TypeScript](https://www.typescriptlang.org/).
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+This project follows a standard Astro project structure. Here's a quick overview:
 
-```text
+```
 /
-├── public/
-│   └── favicon.svg
+├── public/              # Static assets (images, fonts, etc.)
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/          # Project assets (images, etc.) that will be processed by Astro
+│   ├── components/      # Reusable UI components (.astro, .tsx)
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # Site pages
+│   ├── posts/           # Blog post content (.md)
+│   └── styles/          # Global styles
+├── astro.config.mjs     # Astro configuration
+├── package.json         # Project dependencies and scripts
+└── tsconfig.json        # TypeScript configuration
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Prerequisites
 
-## 🧞 Commands
+You need to have [Bun](https://bun.sh/) installed to run this project.
 
-All commands are run from the root of the project, from a terminal:
+## 🧞 Getting Started
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+All commands are run from the root of the project in a terminal:
 
-## 👀 Want to learn more?
+| Command         | Action                                      |
+| :-------------- | :------------------------------------------ |
+| `bun install`   | Installs dependencies                       |
+| `bun run dev`   | Starts the local development server         |
+| `bun run build` | Builds the site for production to `./dist/` |
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The development server will be available at `http://localhost:4321`.
+
+## ✍️ Adding Content
+
+### Creating Blog Posts
+
+To create a new blog post, simply add a new Markdown file (`.md`) to the `src/posts/` directory. You can use frontmatter to add metadata like title, description, and publication date to your posts.
+
+### Adding Images
+
+You can add images to your blog posts in two ways:
+
+1. **In the `public/` directory:**
+
+    - Place your image (e.g., `my-image.png`) inside the `public/` folder.
+    - Reference it in your Markdown file using a root-relative path:
+
+      ```markdown
+      ![Alt text for my image](/my-image.png)
+      ```
+
+    - These images are not processed or optimized by Astro.
+
+2. **In the `src/assets/` directory (Recommended):**
+    - Place your image (e.g., `my-awesome-image.png`) inside the `src/assets/` folder.
+    - Reference it in your Markdown file using a relative path:
+
+      ```markdown
+      ![Alt text for my awesome image](../assets/my-awesome-image.png)
+      ```
+
+    - Astro will process and optimize these images during the build, which is great for performance.
+
+## Licensing
+
+This project is licensed under the MIT License.
+

@@ -8,11 +8,13 @@ import react from "@astrojs/react";
 import { remarkReadingTime } from "./renderTime.mjs";
 import icon from "astro-icon";
 import netlify from "@astrojs/netlify";
+import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   server: {
     port: 3000,
   },
+  site: "https://d7man.netlify.app/",
 
   output: "server",
 
@@ -32,6 +34,7 @@ export default defineConfig({
         openmoji: ["*"],
       },
     }),
+    sitemap(),
   ],
 
   vite: {
@@ -52,3 +55,4 @@ export default defineConfig({
 
   adapter: netlify(),
 });
+

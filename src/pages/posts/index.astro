@@ -17,9 +17,12 @@ const Allposts:CollectionEntry<"blogs">[] = ( await getCollection("blogs") ).sor
     )}
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {Allposts.slice(1).map((post) => (
-        <Card post={post} class="md:w-full" />
-      ))}
+      {Allposts.slice(1).map((post) => {
+      const isOne = Allposts.slice(1).length === 1;
+      return (
+        <Card post={post} class={isOne ? "md:w-full md:col-span-2" : "md:w-full mb-2"} />
+      );
+      })}
     </div>
   </div>
 </Layout>

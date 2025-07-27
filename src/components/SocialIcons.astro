@@ -16,7 +16,7 @@ const getIconSlug = (name: IconName)=> S_icons[name];
 ---
 { Object.entries(links).length > 0 && (
 <div class:list={["flex gap-3", className]}>
-    {Object.entries(links).map(([name, url]) => {
+  {Object.entries(links).map(([name, url]) => {
   const slug = getIconSlug(name as IconName);
   if (!slug){ 
     console.warn(`❗️ Icon "${name}" not found, skipping.`);

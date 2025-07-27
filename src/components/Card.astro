@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import {formatDate} from "@/utils.ts"
+import {formatDate, DesSlice} from "@/utils.ts"
 import Tags from "@/components/Tags.astro"
 import { Image } from "astro:assets";
 interface Props {
@@ -31,7 +31,7 @@ const { cover, title, desc, pubDate, tags } = post.data;
     </div>
     <div class="p-2.5 border-r-scendry border-2 text-center rounded-lg">
       <div class="text-md font-bold tracking-wide text-fg uppercase">{title}</div>
-      <p class="md:text-md sm:text-sm font-semibold text-zinc-400">{desc}</p>
+      <p class="md:text-md sm:text-sm font-semibold text-zinc-400">{DesSlice(desc)}<span></span></p>
       <p class="md:text-md sm:text-sm text-box">{formatDate(pubDate)}</p>
       <Tags tags={tags} />
     <slot/>

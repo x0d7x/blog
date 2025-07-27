@@ -22,4 +22,9 @@ function useTranslations(lang: keyof typeof ui) {
     return ui[lang][key] || ui[defaultLang][key];
   };
 }
-export { formatDate, Capitalize, getLangFromUrl, useTranslations };
+function DesSlice(str: string): string {
+  const prev = str.slice(0, 50);
+  const concat = prev.concat("...");
+  return concat;
+}
+export { formatDate, Capitalize, getLangFromUrl, useTranslations, DesSlice };

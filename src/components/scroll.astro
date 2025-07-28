@@ -2,7 +2,8 @@
 ---
 ---
 <div id="reading-progress-wrapper"
-     class="pointer-events-none fixed top-0 left-0 z-50 w-full h-2 bg-transparent">
+  class="pointer-events-none fixed top-0 left-0 z-50 w-full h-2 bg-transparent"     
+  aria-hidden="true">
   <div id="reading-progress-bar"
        class="h-full bg-indigo-600 transition-[width] duration-150 ease-out rounded-lg"
        style="width:0%"></div>
@@ -15,7 +16,8 @@
     const max = scrollHeight - clientHeight;
     const percent = (scrollTop / max) * 100;
     bar.style.width = percent + '%';
-    bar.style.opacity = percent >= 99 ? '0' : '1'
+    const threshold = 99.5; 
+    bar.style.opacity = percent >= threshold ? '0' : '1';
 
   }
 

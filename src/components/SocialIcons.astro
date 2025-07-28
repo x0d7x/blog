@@ -9,7 +9,7 @@ const S_icons = {
   Twitter: 'mdi:twitter',     
   Github:  'mdi:github',      
   Youtube: 'mdi:youtube',
-  // Tiktok:  'simple-icons:tiktok',
+  Tiktok:  'simple-icons:tiktok',
 } as const;
 type IconName = keyof typeof S_icons;
 const getIconSlug = (name: IconName)=> S_icons[name];
@@ -24,7 +24,7 @@ const getIconSlug = (name: IconName)=> S_icons[name];
     }
   return (
     <a href={url} target="_blank" aria-label={name}>
-      <Icon name={slug} width="24" class="hover:text-primary text-p size-6" />
+      <Icon name={slug} width="24" class="hover:text-fg text-box size-6" />
     </a>
   );
 })}

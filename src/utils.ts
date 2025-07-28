@@ -23,7 +23,7 @@ function useTranslations(lang: keyof typeof ui) {
   };
 }
 function DesSlice(str: string): string {
-  const prev = str.slice(0, 50);
+  const prev = str.slice(0, 60);
   const concat = prev.concat("...");
   return concat;
 }

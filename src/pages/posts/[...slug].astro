@@ -3,6 +3,7 @@ import {getEntry, render} from "astro:content"
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/Header.astro';
 import Prose from '@/components/Prose.astro';
+import Scroll from '@/components/scroll.astro';
 import {formatDate} from "@/utils.ts";
 import Tags from "@/components/Tags.astro"
 const {slug} = Astro.params;
@@ -22,6 +23,7 @@ const { cover, title, desc, author, pubDate, tags } = post.data;
   
 }}>
 <article class="max-w-3xl container mx-auto py-3">
+    <Scroll/>
   <Header post={post}/>
     <p class="text-gray-500 text-sm mb-4 mt-2">Published on {formatDate(pubDate)} by {author}</p>
     <Tags tags={tags} class=" pb-8 " isCard={true} />

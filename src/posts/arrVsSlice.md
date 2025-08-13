@@ -3,7 +3,7 @@ title: "array vs slice في Go — الفرق الجوهري وأفضل استخ
 author: "d7man"
 pubDate: 2025-07-27
 slug: "zsh-startup"
-cover: "../assets/arr-vs-slice.jpg"
+cover: "../assets/arr-vs-slice-go.png"
 desc: "تعرف على الفروقات الأساسية بين array و slice في لغة Go من حيث الأداء، المرونة، وطريقة الاستخدام، مع أمثلة توضيحية ونصائح عملية لاختيار الأنسب."
 tags: ["array", "golang", "coding"]
 social:

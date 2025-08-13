@@ -23,8 +23,7 @@ function useTranslations(lang: keyof typeof ui) {
   };
 }
 function DesSlice(str: string): string {
-  const prev = str.slice(0, 60);
-  const concat = prev.concat("...");
-  return concat;
+  const prev = str.substring(0, 100);
+  return prev + " ...";
 }
 export { formatDate, Capitalize, getLangFromUrl, useTranslations, DesSlice };

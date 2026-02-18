@@ -7,7 +7,6 @@ import { getLangFromUrl, useTranslations } from '@/utils.ts';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-
 <Layout title="Home 🏠">
 <h1 class=" m-4 text-3xl text-fg font-semibold p-2 text-center">{t("home.title")} <span class="text-nowrap ">📝</span></h1>
   <HomeCard />

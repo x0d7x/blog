@@ -1,74 +1,36 @@
 # My Personal Blog
 
-This is a personal blog built with [Astro](https://astro.build/), a modern web framework for building fast, content-focused websites. The UI components are built with [React](https://react.dev/) and styled with [Tailwind CSS](https://tailwindcss.com/). The entire project is written in [TypeScript](https://www.typescriptlang.org/).
+This is a personal blog built with [Astro](https://www.astro.build/), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/).
 
-## 🚀 Project Structure
+## Features
 
-This project follows a standard Astro project structure. Here's a quick overview:
+*   **Blog Posts:** Create and display blog posts from Markdown files.
+*   **Internationalization (i18n):** Supports English and Arabic languages.
+*   **Reading Time:** Calculates and displays the estimated reading time for each post.
+*   **Syntax Highlighting:** Provides code highlighting for code blocks in posts.
+*   **Social Media Links:** Allows you to add links to your social media profiles.
+*   **Responsive Design:** The blog is designed to be responsive and work on different screen sizes.
 
+## Getting Started
+
+To get started with this project, you need to have [Bun](https://bun.sh/) installed.
+
+```bash
+bun install
+bun run dev
 ```
-/
-├── public/              # Static assets (images, fonts, etc.)
-├── src/
-│   ├── assets/          # Project assets (images, etc.) that will be processed by Astro
-│   ├── components/      # Reusable UI components (.astro, .tsx)
-│   ├── layouts/         # Page layouts
-│   ├── pages/           # Site pages
-│   ├── posts/           # Blog post content (.md)
-│   └── styles/          # Global styles
-├── astro.config.mjs     # Astro configuration
-├── package.json         # Project dependencies and scripts
-└── tsconfig.json        # TypeScript configuration
-```
 
-## Prerequisites
+This will start the development server at `http://localhost:4321`.
 
-You need to have [Bun](https://bun.sh/) installed to run this project.
+## Project Structure
 
-## 🧞 Getting Started
+*   **`src/components`**: Reusable components for the blog.
+*   **`src/content`**: Content for the blog posts.
+*   **`src/layouts`**: Layout components for pages.
+*   **`src/pages`**: Pages for the blog.
+*   **`src/styles`**: Global styles for the blog.
+*   **`src/utils.ts`**: Utility functions.
 
-All commands are run from the root of the project in a terminal:
-
-| Command         | Action                                      |
-| :-------------- | :------------------------------------------ |
-| `bun install`   | Installs dependencies                       |
-| `bun run dev`   | Starts the local development server         |
-| `bun run build` | Builds the site for production to `./dist/` |
-
-The development server will be available at `http://localhost:4321`.
-
-## ✍️ Adding Content
-
-### Creating Blog Posts
-
-To create a new blog post, simply add a new Markdown file (`.md`) to the `src/posts/` directory. You can use frontmatter to add metadata like title, description, and publication date to your posts.
-
-### Adding Images
-
-You can add images to your blog posts in two ways:
-
-1. **In the `public/` directory:**
-
-    - Place your image (e.g., `my-image.png`) inside the `public/` folder.
-    - Reference it in your Markdown file using a root-relative path:
-
-      ```markdown
-      ![Alt text for my image](/my-image.png)
-      ```
-
-    - These images are not processed or optimized by Astro.
-
-2. **In the `src/assets/` directory (Recommended):**
-    - Place your image (e.g., `my-awesome-image.png`) inside the `src/assets/` folder.
-    - Reference it in your Markdown file using a relative path:
-
-      ```markdown
-      ![Alt text for my awesome image](../assets/my-awesome-image.png)
-      ```
-
-    - Astro will process and optimize these images during the build, which is great for performance.
-
-## Licensing
+## License
 
 This project is licensed under the MIT License.
-

@@ -2,7 +2,7 @@
 title: "StayZen - تطبيق macOS لمنع الدخول في وضع السكون بسهولة"
 author: "d7man"
 pubDate: 2026-02-22
-slug: "stayzen-app"
+slug: "stayzen_app"
 cover: "../assets/stayzen-cover.jpeg"
 desc: "تطبيق أنيق macOS لمنع نوم جهازك باستخدام أوامر النظام الأصلية"
 tags: ["mac", "productivity", "automation", "open-source"]

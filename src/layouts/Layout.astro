@@ -40,13 +40,13 @@ const canonical = `${Astro.url.origin}${Astro.url.pathname}`;
     <meta property="og:description" content={description ?? Site_description} />
     <meta property="og:url"         content={canonical} />
     <meta property="og:site_name"   content={Site_title} />
-    <meta property="og:image"       content={image} />
+    <meta property="og:image"       content={`${Astro.url.origin}${image}`} />
     <meta property="article:author" content={author} />
     <meta property="article:published_time" content={pubDate} />
     <!-- <meta property="og:locale"      content={currentLocale} /> -->
     <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta name="twitter:card"        content="d7man blog " />
+    <meta name="twitter:card"        content="summary_large_image" />
     <meta name="twitter:site"        content="@x0d7x" />
     <meta name="twitter:title"       content={title ?? Site_title} />
     <meta name="twitter:description" content={description ?? Site_description} />

@@ -17,8 +17,8 @@ const { cover, title, desc, author, pubDate, tags } = post.data;
 <Layout title={title} og={{
   ogType: "article",
   author: author,
-  pubDate: pubDate.toDateString(),
-  image: cover.src,
+  pubDate: pubDate.toISOString(),
+  image: new URL(cover.src, Astro.url.origin).href,
   description: desc,
   
 }}>

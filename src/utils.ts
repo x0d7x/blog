@@ -26,4 +26,16 @@ function DesSlice(str: string): string {
   const prev = str.substring(0, 100);
   return prev + " ...";
 }
-export { formatDate, Capitalize, getLangFromUrl, useTranslations, DesSlice };
+function getOgImageUrl(imageSrc: string, origin: string | URL): string {
+  if (!imageSrc) return "";
+  
+  if (imageSrc.startsWith('http://') || imageSrc.startsWith('https://')) {
+    return imageSrc;
+  }
+  
+  const baseOrigin = typeof origin === 'string' ? origin : origin.origin;
+  const normalizedPath = imageSrc.startsWith('/') ? imageSrc : `/${imageSrc}`;
+  
+  return `${baseOrigin}${normalizedPath}`;
+}
+export { formatDate, Capitalize, getLangFromUrl, useTranslations, DesSlice, getOgImageUrl };

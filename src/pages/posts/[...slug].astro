@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/Header.astro';
 import Prose from '@/components/Prose.astro';
 import Scroll from '@/components/scroll.astro';
-import {formatDate} from "@/utils.ts";
+import {formatDate, getOgImageUrl} from "@/utils.ts";
 import Tags from "@/components/Tags.astro"
 const {slug} = Astro.params;
 if (slug === undefined) throw new Error("id is undefined");
@@ -18,7 +18,7 @@ const { cover, title, desc, author, pubDate, tags } = post.data;
   ogType: "article",
   author: author,
   pubDate: pubDate.toISOString(),
-  image: new URL(cover.src, Astro.url.origin).href,
+  image: getOgImageUrl(cover.src, Astro.url.origin),
   description: desc,
   
 }}>
